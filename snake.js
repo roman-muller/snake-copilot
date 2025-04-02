@@ -6,7 +6,7 @@ const ctx = canvas.getContext("2d");
 const box = 20;
 
 // Initialize the snake with one segment at a specific position
-let snake = [{ x: 9 * box, y: 10 * box }];
+const snake = [{ x: 9 * box, y: 10 * box }];
 
 // Variable to store the current direction of the snake
 let direction = null;
@@ -18,7 +18,7 @@ let food = {
 };
 
 // Generate random obstacles
-let obstacles = [];
+const obstacles = [];
 for (let i = 0; i < 5; i++) {
   obstacles.push({
     x: Math.floor(Math.random() * 20) * box,
@@ -97,7 +97,7 @@ function draw() {
     collision(newHead, obstacles) // Collision with obstacles
   ) {
     clearInterval(game); // Stop the game loop
-    alert("Game Over! Your score: " + score); // Show the final score
+    alert(`Game Over! Your score: ${score}`); // Show the final score
   }
 
   // Add the new head to the snake
@@ -106,7 +106,7 @@ function draw() {
   // Display the score on the canvas
   ctx.fillStyle = "white";
   ctx.font = "20px Arial";
-  ctx.fillText("Score: " + score, 10, 20);
+  ctx.fillText(`Score: ${score}`, 10, 20);
 }
 
 // Function to check if the snake collides with itself or obstacles
